@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{produit.nom}}{% endblock %}
+
+{% block body %}
+<h1>{{produit.nom}}</h1>
+
+<h2>Modifier les informations</h2>
+
+{% if produit.photo is not null  %}
+<img src="{{asset('/uploads/'~produit.photo)}}">
+{% endif %}
+
+{{form (form_edit)}}
+<a href="{{ path('delete_produit',{'id':produit.id}) }}">{{'Supprimer'}}</a>
+
+{% endblock %}
